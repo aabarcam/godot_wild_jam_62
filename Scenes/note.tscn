@@ -1,0 +1,104 @@
+[gd_scene load_steps=19 format=3 uid="uid://c6n0bm22u1f7w"]
+
+[ext_resource type="Script" path="res://Scripts/note.gd" id="1_n30x3"]
+[ext_resource type="Texture2D" uid="uid://de46sxq5rsun3" path="res://Assets/Sprites/Seeds/Eye/SEMILLA-OJO_1.png" id="2_ij57w"]
+[ext_resource type="Texture2D" uid="uid://batrfm2axxboj" path="res://Assets/Sprites/Seeds/Eye/SEMILLA-OJO_2.png" id="4_w2elt"]
+[ext_resource type="Texture2D" uid="uid://bp8geters0sb2" path="res://Assets/Sprites/Seeds/Eye/SEMILLA-OJO_3.png" id="5_y3tfp"]
+[ext_resource type="Texture2D" uid="uid://bp4ar06vimb7g" path="res://Assets/Sprites/Seeds/Skull/SEMILLA-CALAVERA_IZQ_1.png" id="6_77b8u"]
+[ext_resource type="Texture2D" uid="uid://b621pp30txfrq" path="res://Assets/Sprites/Seeds/Eye/SEMILLA-OJO_4.png" id="6_gonba"]
+[ext_resource type="Texture2D" uid="uid://8ipdulqi5rma" path="res://Assets/Sprites/Seeds/Skull/SEMILLA-CALAVERA_IZQ_2.png" id="7_ifjtj"]
+[ext_resource type="Texture2D" uid="uid://j15bni1p45r2" path="res://Assets/Sprites/Seeds/Skull/SEMILLA-CALAVERA_IZQ_3.png" id="8_pxn2v"]
+[ext_resource type="Texture2D" uid="uid://bf06p3g5uqnse" path="res://Assets/Sprites/Seeds/Skull/SEMILLA-CALAVERA_IZQ_4.png" id="9_kx6jv"]
+[ext_resource type="Texture2D" uid="uid://wgdka2ra0qsj" path="res://Assets/Sprites/Seeds/Skull/SEMILLA-CALAVERA_DER_1.png" id="10_5apvr"]
+[ext_resource type="Texture2D" uid="uid://51bfjlt4lu8o" path="res://Assets/Sprites/Seeds/Skull/SEMILLA-CALAVERA_DER_2.png" id="11_fe6dd"]
+[ext_resource type="Texture2D" uid="uid://c2b5hsmpjov81" path="res://Assets/Sprites/Seeds/Skull/SEMILLA-CALAVERA_DER_3.png" id="12_vo7ck"]
+[ext_resource type="Texture2D" uid="uid://cd5bkgj5pplto" path="res://Assets/Sprites/Seeds/Skull/SEMILLA-CALAVERA_DER_4.png" id="13_yulfj"]
+
+[sub_resource type="Animation" id="Animation_hudu0"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("2_ij57w")]
+}
+
+[sub_resource type="Animation" id="Animation_1ahyv"]
+resource_name = "idle_eye"
+length = 0.8
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4, 0.6),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [ExtResource("2_ij57w"), ExtResource("4_w2elt"), ExtResource("5_y3tfp"), ExtResource("6_gonba")]
+}
+
+[sub_resource type="Animation" id="Animation_nn2hk"]
+resource_name = "idle_skull_left"
+length = 0.8
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4, 0.6),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [ExtResource("6_77b8u"), ExtResource("7_ifjtj"), ExtResource("8_pxn2v"), ExtResource("9_kx6jv")]
+}
+
+[sub_resource type="Animation" id="Animation_trevr"]
+resource_name = "idle_skull_right"
+length = 0.8
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4, 0.6),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [ExtResource("10_5apvr"), ExtResource("11_fe6dd"), ExtResource("12_vo7ck"), ExtResource("13_yulfj")]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_rater"]
+_data = {
+"RESET": SubResource("Animation_hudu0"),
+"idle_eye": SubResource("Animation_1ahyv"),
+"idle_skull_left": SubResource("Animation_nn2hk"),
+"idle_skull_right": SubResource("Animation_trevr")
+}
+
+[node name="Note" type="Node2D"]
+script = ExtResource("1_n30x3")
+
+[node name="Sprite" type="Sprite2D" parent="."]
+texture = ExtResource("2_ij57w")
+
+[node name="Outline" type="Sprite2D" parent="."]
+modulate = Color(1, 1, 1, 0.321569)
+texture = ExtResource("6_77b8u")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_rater")
+}

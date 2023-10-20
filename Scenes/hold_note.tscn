@@ -1,0 +1,26 @@
+[gd_scene load_steps=4 format=3 uid="uid://bla46ghbvg8m3"]
+
+[ext_resource type="Script" path="res://Scripts/hold_note.gd" id="1_a86q5"]
+[ext_resource type="Texture2D" uid="uid://2n3gkwwrh23g" path="res://Assets/Sprites/seed.png" id="1_ev71s"]
+[ext_resource type="Texture2D" uid="uid://hsggaj4k4abi" path="res://Assets/Sprites/seed_outline.png" id="2_o4lnt"]
+
+[node name="HoldNote" type="Node2D"]
+script = ExtResource("1_a86q5")
+
+[node name="Sprite" type="Sprite2D" parent="."]
+modulate = Color(1, 0.611765, 0, 1)
+texture = ExtResource("1_ev71s")
+
+[node name="Outline" type="Sprite2D" parent="."]
+texture = ExtResource("2_o4lnt")
+
+[node name="ProgressBar" type="ProgressBar" parent="."]
+offset_left = 167.0
+offset_top = -202.0
+offset_right = 259.0
+offset_bottom = 116.0
+rotation = 1.5708
+fill_mode = 3
+show_percentage = false
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]

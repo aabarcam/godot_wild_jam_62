@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://dud5bc3he4461"]
+
+[ext_resource type="PackedScene" uid="uid://c6n0bm22u1f7w" path="res://Scenes/note.tscn" id="1_kyykc"]
+[ext_resource type="Script" path="res://Scripts/double_note.gd" id="1_ydkyc"]
+
+[node name="DoubleNote" type="Node2D"]
+script = ExtResource("1_ydkyc")
+
+[node name="Note" parent="." instance=ExtResource("1_kyykc")]
+position = Vector2(-163, 80)
+
+[node name="Note2" parent="." instance=ExtResource("1_kyykc")]
+position = Vector2(82, 1)
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 0.5

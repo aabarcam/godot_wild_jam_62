@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=3 uid="uid://4o0sbeg8t0cq"]
+
+[ext_resource type="Script" path="res://Scripts/SingleHoldNote.gd" id="1_s6qk1"]
+[ext_resource type="PackedScene" uid="uid://bla46ghbvg8m3" path="res://Scenes/hold_note.tscn" id="2_hutjj"]
+
+[node name="SingleHoldNote" type="Node2D"]
+script = ExtResource("1_s6qk1")
+
+[node name="HoldNote" parent="." instance=ExtResource("2_hutjj")]
