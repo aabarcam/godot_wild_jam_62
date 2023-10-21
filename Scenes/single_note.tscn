@@ -1,9 +1,146 @@
-[gd_scene load_steps=3 format=3 uid="uid://b1p3g8602y43u"]
+[gd_scene load_steps=15 format=3 uid="uid://b1p3g8602y43u"]
 
 [ext_resource type="Script" path="res://Scripts/single_note.gd" id="1_dvnpq"]
 [ext_resource type="PackedScene" uid="uid://c6n0bm22u1f7w" path="res://Scenes/note.tscn" id="2_6pbmf"]
+[ext_resource type="Texture2D" uid="uid://e28d1iujbs8c" path="res://Assets/Sprites/Sprouts/Eye/BROTE-OJO_1.png" id="3_2eyg5"]
+[ext_resource type="Texture2D" uid="uid://bxsuytkeqw4dy" path="res://Assets/Sprites/Sprouts/Eye/BROTE-OJO_2.png" id="4_u0t5x"]
+[ext_resource type="Texture2D" uid="uid://c88k3h8w15evw" path="res://Assets/Sprites/Sprouts/Eye/BROTE-OJO_3.png" id="5_qm86e"]
+[ext_resource type="Texture2D" uid="uid://cs2dhtlbi3dgj" path="res://Assets/Sprites/Sprouts/Eye/BROTE-OJO_4.png" id="6_b50jq"]
+[ext_resource type="Texture2D" uid="uid://b6fx10fb6qfyb" path="res://Assets/Sprites/Plants/Eye/OJO-FLOR_1.png" id="7_hbe1o"]
+[ext_resource type="Texture2D" uid="uid://cka8l5ptob37t" path="res://Assets/Sprites/Plants/Eye/OJO-FLOR_2.png" id="8_rpveh"]
+[ext_resource type="Texture2D" uid="uid://ben7dunnnmiau" path="res://Assets/Sprites/Plants/Eye/OJO-FLOR_3.png" id="9_7cdat"]
+[ext_resource type="Texture2D" uid="uid://vmyxke7cxefl" path="res://Assets/Sprites/Plants/Eye/OJO-FLOR_4.png" id="10_lqanv"]
+
+[sub_resource type="Animation" id="Animation_pfkf2"]
+resource_name = "sprout"
+length = 0.8
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4, 0.6),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [ExtResource("3_2eyg5"), ExtResource("4_u0t5x"), ExtResource("5_qm86e"), ExtResource("6_b50jq")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="Animation" id="Animation_k8afx"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("3_2eyg5")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Sprite:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_fdmx1"]
+resource_name = "grown"
+length = 0.8
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4, 0.6),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [ExtResource("7_hbe1o"), ExtResource("8_rpveh"), ExtResource("9_7cdat"), ExtResource("10_lqanv")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(44, -246)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Sprite:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_jnhwa"]
+_data = {
+"RESET": SubResource("Animation_k8afx"),
+"grown": SubResource("Animation_fdmx1"),
+"sprout": SubResource("Animation_pfkf2")
+}
 
 [node name="SingleNote" type="Node2D"]
 script = ExtResource("1_dvnpq")
 
 [node name="Note" parent="." instance=ExtResource("2_6pbmf")]
+position = Vector2(0, 120)
+
+[node name="Sprite" type="Sprite2D" parent="."]
+visible = false
+texture = ExtResource("3_2eyg5")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_jnhwa")
+}
+
+[node name="SproutTimer" type="Timer" parent="."]
+one_shot = true

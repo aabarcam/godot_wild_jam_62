@@ -1,15 +1,16 @@
-[gd_scene load_steps=24 format=3 uid="uid://dj424olo2udix"]
+[gd_scene load_steps=25 format=3 uid="uid://dj424olo2udix"]
 
 [ext_resource type="Script" path="res://Scripts/player.gd" id="1_froo7"]
 [ext_resource type="Texture2D" uid="uid://cfdevymdtn12" path="res://Assets/Sprites/Player/Day/Walking/PERSONA-CAMINANDO_1.png" id="2_tqrbj"]
-[ext_resource type="Texture2D" uid="uid://bc1b38l1y3cba" path="res://Assets/Sprites/Player/Day/Walking/PERSONA-CAMINANDO_2.png" id="3_tn7gh"]
 [ext_resource type="Texture2D" uid="uid://2y7t4eikbjyp" path="res://Assets/Sprites/Player/Day/Planting/PERSONA-SIEMBRA_1.png" id="3_v2crp"]
 [ext_resource type="Texture2D" uid="uid://cq60h42ocg4r0" path="res://Assets/Sprites/Player/Day/Planting/PERSONA-SIEMBRA_2.png" id="4_8x8qd"]
-[ext_resource type="Texture2D" uid="uid://drk5qkijhnmjo" path="res://Assets/Sprites/Player/Day/Walking/PERSONA-CAMINANDO_3.png" id="4_w8yrn"]
 [ext_resource type="Texture2D" uid="uid://b0ydbokuodi2x" path="res://Assets/Sprites/Player/Day/Planting/PERSONA-SIEMBRA_3.png" id="5_1jdus"]
-[ext_resource type="Texture2D" uid="uid://c8ps16b2opb0f" path="res://Assets/Sprites/Player/Day/Walking/PERSONA-CAMINANDO_4.png" id="5_vv18d"]
 [ext_resource type="Texture2D" uid="uid://c8n5updc0gytb" path="res://Assets/Sprites/Player/Day/Planting/PERSONA-SIEMBRA_4.png" id="6_r0luo"]
+[ext_resource type="Texture2D" uid="uid://cycp3cp38xpix" path="res://Assets/Sprites/Player/Day/Walking/CAMINANDO_DIA1.png" id="7_kegs6"]
+[ext_resource type="Texture2D" uid="uid://dpf4ao43m6ffr" path="res://Assets/Sprites/Player/Day/Walking/CAMINANDO_DIA2.png" id="8_yfnre"]
+[ext_resource type="Texture2D" uid="uid://bhfg431vcnx0k" path="res://Assets/Sprites/Player/Day/Walking/CAMINANDO_DIA3.png" id="9_75brx"]
 [ext_resource type="Texture2D" uid="uid://wyi4nxq5xgbp" path="res://Assets/Sprites/Player/Night/Walking/BRUJA-CAMINANDO_1.png" id="10_p38yn"]
+[ext_resource type="Texture2D" uid="uid://it7m0lotb2ew" path="res://Assets/Sprites/Player/Day/Walking/CAMINANDO_DIA4.png" id="10_qjm7e"]
 [ext_resource type="Texture2D" uid="uid://u3pcitkeuss2" path="res://Assets/Sprites/Player/Night/Walking/BRUJA-CAMINANDO_2.png" id="11_lm8gw"]
 [ext_resource type="Texture2D" uid="uid://bj8ot8h4ftj3b" path="res://Assets/Sprites/Player/Night/Walking/BRUJA-CAMINANDO_3.png" id="12_1c5il"]
 [ext_resource type="Texture2D" uid="uid://bg4xydi5ur6kf" path="res://Assets/Sprites/Player/Night/Walking/BRUJA-CAMINANDO_4.png" id="13_5ppit"]
@@ -63,7 +64,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0, 0.2, 0.4, 0.6),
 "transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 1,
-"values": [ExtResource("2_tqrbj"), ExtResource("3_tn7gh"), ExtResource("4_w8yrn"), ExtResource("5_vv18d")]
+"values": [ExtResource("7_kegs6"), ExtResource("8_yfnre"), ExtResource("9_75brx"), ExtResource("10_qjm7e")]
 }
 
 [sub_resource type="Animation" id="Animation_3kw6o"]

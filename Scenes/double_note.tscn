@@ -1,7 +1,143 @@
-[gd_scene load_steps=3 format=3 uid="uid://dud5bc3he4461"]
+[gd_scene load_steps=15 format=3 uid="uid://dud5bc3he4461"]
 
 [ext_resource type="PackedScene" uid="uid://c6n0bm22u1f7w" path="res://Scenes/note.tscn" id="1_kyykc"]
 [ext_resource type="Script" path="res://Scripts/double_note.gd" id="1_ydkyc"]
+[ext_resource type="Texture2D" uid="uid://difi7585fk61w" path="res://Assets/Sprites/Sprouts/Skull/BROTE-CALAVERA_1.png" id="3_i3rsa"]
+[ext_resource type="Texture2D" uid="uid://bo1jsg5nuhcgg" path="res://Assets/Sprites/Sprouts/Skull/BROTE-CALAVERA_2.png" id="4_quwyv"]
+[ext_resource type="Texture2D" uid="uid://b1gepapph508n" path="res://Assets/Sprites/Sprouts/Skull/BROTE-CALAVERA_3.png" id="5_0psjl"]
+[ext_resource type="Texture2D" uid="uid://cj3rvhx3gtcxo" path="res://Assets/Sprites/Sprouts/Skull/BROTE-CALAVERA_4.png" id="6_nj2ds"]
+[ext_resource type="Texture2D" uid="uid://ds404e7u8h2l7" path="res://Assets/Sprites/Plants/Skull/CALAVERAS_1.png" id="7_63on2"]
+[ext_resource type="Texture2D" uid="uid://bjrccs08c6w1b" path="res://Assets/Sprites/Plants/Skull/CALAVERAS_2.png" id="8_2svyc"]
+[ext_resource type="Texture2D" uid="uid://cdm7lj5mngo3b" path="res://Assets/Sprites/Plants/Skull/CALAVERAS_3.png" id="9_gh4y7"]
+[ext_resource type="Texture2D" uid="uid://dov1ut2oveadr" path="res://Assets/Sprites/Plants/Skull/CALAVERAS_4.png" id="10_dkqyv"]
+
+[sub_resource type="Animation" id="Animation_0q8k8"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D:texture")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("3_i3rsa")]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Sprite2D:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(80, -285)]
+}
+
+[sub_resource type="Animation" id="Animation_fiy2j"]
+resource_name = "idle_sprout"
+length = 0.8
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D:texture")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4, 0.6),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [ExtResource("3_i3rsa"), ExtResource("4_quwyv"), ExtResource("5_0psjl"), ExtResource("6_nj2ds")]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Sprite2D:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_1fa5y"]
+resource_name = "grown"
+length = 0.8
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4, 0.6),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [ExtResource("7_63on2"), ExtResource("8_2svyc"), ExtResource("9_gh4y7"), ExtResource("10_dkqyv")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Sprite2D:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(66, -314)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_roinw"]
+_data = {
+"RESET": SubResource("Animation_0q8k8"),
+"grown": SubResource("Animation_1fa5y"),
+"idle_sprout": SubResource("Animation_fiy2j")
+}
 
 [node name="DoubleNote" type="Node2D"]
 script = ExtResource("1_ydkyc")
@@ -14,3 +150,16 @@ position = Vector2(82, 1)
 
 [node name="Timer" type="Timer" parent="."]
 wait_time = 0.5
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_roinw")
+}
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(80, -285)
+texture = ExtResource("3_i3rsa")
+
+[node name="SproutTimer" type="Timer" parent="."]
+one_shot = true

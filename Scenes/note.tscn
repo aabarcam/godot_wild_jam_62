@@ -28,6 +28,18 @@ tracks/0/keys = {
 "update": 1,
 "values": [ExtResource("2_ij57w")]
 }
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
 
 [sub_resource type="Animation" id="Animation_1ahyv"]
 resource_name = "idle_eye"
@@ -44,6 +56,18 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 1,
 "values": [ExtResource("2_ij57w"), ExtResource("4_w2elt"), ExtResource("5_y3tfp"), ExtResource("6_gonba")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
 }
 
 [sub_resource type="Animation" id="Animation_nn2hk"]
@@ -62,6 +86,18 @@ tracks/0/keys = {
 "update": 1,
 "values": [ExtResource("6_77b8u"), ExtResource("7_ifjtj"), ExtResource("8_pxn2v"), ExtResource("9_kx6jv")]
 }
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
 
 [sub_resource type="Animation" id="Animation_trevr"]
 resource_name = "idle_skull_right"
@@ -79,6 +115,18 @@ tracks/0/keys = {
 "update": 1,
 "values": [ExtResource("10_5apvr"), ExtResource("11_fe6dd"), ExtResource("12_vo7ck"), ExtResource("13_yulfj")]
 }
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_rater"]
 _data = {
@@ -92,6 +140,7 @@ _data = {
 script = ExtResource("1_n30x3")
 
 [node name="Sprite" type="Sprite2D" parent="."]
+visible = false
 texture = ExtResource("2_ij57w")
 
 [node name="Outline" type="Sprite2D" parent="."]

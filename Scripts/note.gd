@@ -4,14 +4,21 @@ class_name Note
 
 @onready var anim_player : AnimationPlayer = $"AnimationPlayer"
 @onready var outline_sprite : Sprite2D = $"Outline"
+@onready var sprite : Sprite2D = $"Sprite"
 var start_scale : float = 3
-var end_scale : float = 0.5
-var progress : float = 0.0
+var cue_time : float = 1.0 : set = set_cue
+var remaining_time : float = cue_time
+var expire_time : float = -0.5
 var active : bool = false : set = set_active
 
 var eye_tex = preload("res://Assets/Sprites/Seeds/Eye/SEMILLA-OJO_1.png")
 var left_skull_tex = preload("res://Assets/Sprites/Seeds/Skull/SEMILLA-CALAVERA_IZQ_1.png")
 var right_skull_tex = preload("res://Assets/Sprites/Seeds/Skull/SEMILLA-CALAVERA_DER_1.png")
+
+var eye_outline_tex = preload("res://Assets/Sprites/Plants/Eye/OJO-FLOR_OUTLINE.png")
+var left_skull_outline_tex = preload("res://Assets/Sprites/Plants/Skull/CALAVERAS_IZQ_OUTLINE.png")
+var right_skull_outline_tex = preload("res://Assets/Sprites/Plants/Skull/CALAVERAS_DER_OUTLINE.png")
+var pumpkin_outline_tex = preload("res://Assets/Sprites/Plants/Pumpkin/CALABAZA_OUTLINE.png")
 
 signal note_done(success_state)
 
@@ -21,10 +28,11 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	if progress < 100 and active:
-		progress = min(progress + delta * 75, 100)
+	if remaining_time > expire_time and active:
+		var adjusted_delta = MusicManager.adjusted_delta()
+		remaining_time -= adjusted_delta
 		update_outline()
-	elif progress == 100 and active:
+	elif remaining_time <= expire_time and active:
 		active = false
 		emit_note_done(false)
 		hide_outline()
@@ -41,8 +49,24 @@ func play_right_skull_anim():
 	outline_sprite.texture = right_skull_tex
 	anim_player.play("idle_skull_right")
 
+func sprout():
+	anim_player.stop()
+	sprite.visible = false
+
+func grow_pumpkin():
+	outline_sprite.texture = pumpkin_outline_tex
+
+func grow_eye():
+	outline_sprite.texture = eye_outline_tex
+
+func grow_skull_left():
+	outline_sprite.texture = left_skull_outline_tex
+
+func grow_skull_right():
+	outline_sprite.texture = right_skull_outline_tex
+
 func reset():
-	progress = 0
+	remaining_time = cue_time
 	hide_outline()
 	update_outline()
 	active = false
@@ -63,27 +87,19 @@ func show_outline():
 	outline_sprite.visible = true
 
 func current_scale():
-	return start_scale - (start_scale - end_scale) * progress / 100
+	return start_scale - (start_scale - 1) * (1 - remaining_time)
 
 func check_hit():
 	var success = false
-	if current_scale() > 1.5:
-		print("bad")
-	elif current_scale() > 1.1:
-		print("early")
-	elif current_scale() > 0.9:
+	if remaining_time < 0.2 and remaining_time > -0.2:
 		success = true
-		print("good")
-	elif current_scale() > 0.5:
-		print("late")
-	else:
-		print("bad")
 	return success
 
 func hit_note():
 	if not active:
 		return
 	active = false
+	outline_sprite.hide()
 	var success = check_hit()
 	emit_note_done(success)
 
@@ -93,3 +109,6 @@ func emit_note_done(success_state):
 
 func set_active(new_state):
 	active = new_state
+
+func set_cue(time):
+	cue_time = time

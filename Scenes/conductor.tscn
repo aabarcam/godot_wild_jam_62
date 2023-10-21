@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://2deoukmjvqdw"]
+
+[ext_resource type="Script" path="res://Scripts/conductor.gd" id="1_qrien"]
+
+[node name="Conductor" type="AudioStreamPlayer"]
+volume_db = -18.0
+script = ExtResource("1_qrien")
