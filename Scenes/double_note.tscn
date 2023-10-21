@@ -163,3 +163,6 @@ texture = ExtResource("3_i3rsa")
 
 [node name="SproutTimer" type="Timer" parent="."]
 one_shot = true
+
+[node name="HarvestTimer" type="Timer" parent="."]
+one_shot = true

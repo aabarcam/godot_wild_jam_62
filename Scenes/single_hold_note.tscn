@@ -156,3 +156,6 @@ libraries = {
 visible = false
 scale = Vector2(0.6, 0.6)
 texture = ExtResource("3_a72ac")
+
+[node name="HarvestTimer" type="Timer" parent="."]
+one_shot = true

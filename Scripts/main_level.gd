@@ -165,6 +165,8 @@ func reset():
 
 func _on_note_done(note, success_state):
 	active_notes.erase(note)
+	if success_state and note.to_harvest:
+		note.harvest()
 	if not success_state:
 		player.miss()
 		day_hud = day_huds[player.lives]
@@ -174,7 +176,8 @@ func _on_note_done(note, success_state):
 			hud.texture = day_hud
 		else:
 			hud.texture = night_hud
-		note.queue_free()
+		if not note.to_harvest:
+			note.queue_free()
 		return
 	if is_day:
 		night_notes.push_front(note)
@@ -202,6 +205,7 @@ func _on_player_lost():
 	game_over()
 
 func on_day_finished():
+	active_notes = []
 	player.stop_anim()
 	started = false
 	beat = 0

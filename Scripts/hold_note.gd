@@ -21,6 +21,7 @@ func _process(delta):
 func hit_note():
 	if not active:
 		return
+	outline_sprite.hide()
 	if check_hit():
 		note_hit = true
 		outline_sprite.hide()
