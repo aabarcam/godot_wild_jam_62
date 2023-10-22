@@ -2,11 +2,11 @@
 
 [ext_resource type="Script" path="res://Scripts/main_level.gd" id="1_ahxvt"]
 [ext_resource type="PackedScene" uid="uid://djeyy20a0ctp7" path="res://Scenes/world.tscn" id="2_5ic60"]
-[ext_resource type="Texture2D" uid="uid://tvukoh6vxn0k" path="res://Assets/HUD/DÍA Marco de Espinas_3.png" id="2_tb2vu"]
+[ext_resource type="PackedScene" uid="uid://ob0cc6wqmwt5" path="res://Scenes/hud.tscn" id="2_bnbxy"]
 [ext_resource type="PackedScene" uid="uid://dj424olo2udix" path="res://Scenes/player.tscn" id="3_6vf45"]
 [ext_resource type="PackedScene" uid="uid://2deoukmjvqdw" path="res://Scenes/conductor.tscn" id="4_co4vk"]
-[ext_resource type="AudioStream" uid="uid://kfcsrpxb5qcn" path="res://Assets/Audio/tema1otravez.mp3" id="5_6tmku"]
-[ext_resource type="AudioStream" uid="uid://d2ld3uyew3htx" path="res://Assets/Audio/tema1otravez_reversed.mp3" id="7_ossbq"]
+[ext_resource type="AudioStream" uid="uid://67vbgvlg1cod" path="res://Assets/Audio/loopJusto.wav" id="6_q1u65"]
+[ext_resource type="AudioStream" uid="uid://7g87ald28i80" path="res://Assets/Audio/loopJustoREVERSED.wav" id="7_dt6ur"]
 [ext_resource type="FontFile" uid="uid://y3kua7dps3sb" path="res://Assets/Font/Stoke/Stoke-Light.ttf" id="8_grtig"]
 [ext_resource type="PackedScene" uid="uid://d2nld0fk8sxis" path="res://Scenes/sun.tscn" id="9_qr1hq"]
 [ext_resource type="PackedScene" uid="uid://cgpi0rthbvwmj" path="res://Scenes/moon.tscn" id="10_j351v"]
@@ -31,9 +31,8 @@ offset_right = 576.0
 offset_bottom = 324.0
 color = Color(0.737255, 0.647059, 0.513726, 1)
 
-[node name="HUD" type="Sprite2D" parent="."]
+[node name="HUD" parent="." instance=ExtResource("2_bnbxy")]
 scale = Vector2(0.3, 0.3)
-texture = ExtResource("2_tb2vu")
 
 [node name="World" parent="." instance=ExtResource("2_5ic60")]
 z_index = -2
@@ -46,20 +45,12 @@ scale = Vector2(0.5, 0.5)
 z_index = -1
 scale = Vector2(0.1, 0.1)
 
-[node name="Shift" type="ColorRect" parent="."]
-offset_left = -576.0
-offset_top = -324.0
-offset_right = -536.0
-offset_bottom = -264.0
-scale = Vector2(28.7955, 10.8108)
-color = Color(0.105882, 0.105882, 0.0588235, 0)
-
 [node name="DaySong" parent="." instance=ExtResource("4_co4vk")]
-stream = ExtResource("5_6tmku")
+stream = ExtResource("6_q1u65")
 bpm = 101
 
 [node name="NightSong" parent="." instance=ExtResource("4_co4vk")]
-stream = ExtResource("7_ossbq")
+stream = ExtResource("7_dt6ur")
 bpm = 101
 
 [node name="GameOver" type="Label" parent="."]
@@ -77,7 +68,9 @@ grow_horizontal = 2
 grow_vertical = 2
 theme = SubResource("Theme_s8wts")
 text = "Game Over
-Press 'R' to restart"
+Press 'R' to restart
+If you want, after restarting
+ you can press '1' for infinite lives"
 horizontal_alignment = 1
 
 [node name="Start" type="Label" parent="."]
@@ -105,3 +98,11 @@ scale = Vector2(0.16, 0.16)
 visible = false
 position = Vector2(455, -212)
 scale = Vector2(0.16, 0.16)
+
+[node name="Shift" type="ColorRect" parent="."]
+offset_left = -576.0
+offset_top = -324.0
+offset_right = -536.0
+offset_bottom = -264.0
+scale = Vector2(28.7955, 10.8108)
+color = Color(0.105882, 0.105882, 0.0588235, 0)

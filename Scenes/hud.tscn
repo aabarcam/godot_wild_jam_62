@@ -1,7 +1,192 @@
-[gd_scene format=3 uid="uid://ob0cc6wqmwt5"]
+[gd_scene load_steps=27 format=3 uid="uid://ob0cc6wqmwt5"]
+
+[ext_resource type="Texture2D" uid="uid://clnhmefsxrfgo" path="res://Assets/HUD/DÍA Marco de Espinas_0.png" id="1_0422a"]
+[ext_resource type="Texture2D" uid="uid://ckabmlq5k4h2a" path="res://Assets/HUD/Marco_Día_2_0.png" id="2_vhchl"]
+[ext_resource type="Texture2D" uid="uid://crcungd2vfeic" path="res://Assets/HUD/DÍA Marco de Espinas_1.png" id="3_kveyl"]
+[ext_resource type="Texture2D" uid="uid://hc1lr4n188gv" path="res://Assets/HUD/Marco_Día_2_1.png" id="4_o35j1"]
+[ext_resource type="Texture2D" uid="uid://dmftuenb73xg" path="res://Assets/HUD/DÍA Marco de Espinas_2.png" id="5_kekm5"]
+[ext_resource type="Texture2D" uid="uid://dqy3sm61rur7d" path="res://Assets/HUD/Marco_Día_2_2.png" id="6_825u8"]
+[ext_resource type="Texture2D" uid="uid://tvukoh6vxn0k" path="res://Assets/HUD/DÍA Marco de Espinas_3.png" id="7_hcxsa"]
+[ext_resource type="Texture2D" uid="uid://dds73h8814nxq" path="res://Assets/HUD/Marco_Día_2_3.png" id="8_rbreu"]
+[ext_resource type="Texture2D" uid="uid://ce763g3xkb5n3" path="res://Assets/HUD/NOCHE Marco de Espinas_0.png" id="9_jwcg5"]
+[ext_resource type="Texture2D" uid="uid://bth1an5aax4f5" path="res://Assets/HUD/Marco_Noche_2_0.png" id="10_4xi15"]
+[ext_resource type="Texture2D" uid="uid://c2q1vodmw3eqq" path="res://Assets/HUD/NOCHE Marco de Espinas_1.png" id="11_kdecp"]
+[ext_resource type="Texture2D" uid="uid://dh24538qbjx7s" path="res://Assets/HUD/Marco_Noche_2_1.png" id="12_1j38m"]
+[ext_resource type="Texture2D" uid="uid://cw2sbqtvxy7xx" path="res://Assets/HUD/NOCHE Marco de Espinas_2.png" id="13_x37ng"]
+[ext_resource type="Texture2D" uid="uid://umv33cw38gfx" path="res://Assets/HUD/Marco_Noche_2_2.png" id="14_mxiwi"]
+[ext_resource type="Texture2D" uid="uid://bm0xeksltbc25" path="res://Assets/HUD/NOCHE Marco de Espinas_3.png" id="15_vu84t"]
+[ext_resource type="Texture2D" uid="uid://dbk3bq7bgiuyr" path="res://Assets/HUD/Marco_Noche_2_3.png" id="16_yr32a"]
+
+[sub_resource type="Animation" id="Animation_q22gd"]
+resource_name = "day_0"
+length = 0.4
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [ExtResource("1_0422a"), ExtResource("2_vhchl")]
+}
+
+[sub_resource type="Animation" id="Animation_ga45v"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("1_0422a")]
+}
+
+[sub_resource type="Animation" id="Animation_yv0t4"]
+resource_name = "day_1"
+length = 0.4
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [ExtResource("3_kveyl"), ExtResource("4_o35j1")]
+}
+
+[sub_resource type="Animation" id="Animation_58pwh"]
+resource_name = "day_2"
+length = 0.4
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [ExtResource("5_kekm5"), ExtResource("6_825u8")]
+}
+
+[sub_resource type="Animation" id="Animation_ufl2r"]
+resource_name = "day_3"
+length = 0.4
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [ExtResource("7_hcxsa"), ExtResource("8_rbreu")]
+}
+
+[sub_resource type="Animation" id="Animation_0xrqh"]
+resource_name = "night_0"
+length = 0.4
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [ExtResource("9_jwcg5"), ExtResource("10_4xi15")]
+}
+
+[sub_resource type="Animation" id="Animation_i1xbb"]
+resource_name = "night_1"
+length = 0.4
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [ExtResource("11_kdecp"), ExtResource("12_1j38m")]
+}
+
+[sub_resource type="Animation" id="Animation_t6qfv"]
+resource_name = "night_2"
+length = 0.4
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [ExtResource("13_x37ng"), ExtResource("14_mxiwi")]
+}
+
+[sub_resource type="Animation" id="Animation_bwe2u"]
+resource_name = "night_3"
+length = 0.4
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [ExtResource("15_vu84t"), ExtResource("16_yr32a")]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_jsdmu"]
+_data = {
+"RESET": SubResource("Animation_ga45v"),
+"day_0": SubResource("Animation_q22gd"),
+"day_1": SubResource("Animation_yv0t4"),
+"day_2": SubResource("Animation_58pwh"),
+"day_3": SubResource("Animation_ufl2r"),
+"night_0": SubResource("Animation_0xrqh"),
+"night_1": SubResource("Animation_i1xbb"),
+"night_2": SubResource("Animation_t6qfv"),
+"night_3": SubResource("Animation_bwe2u")
+}
 
 [node name="HUD" type="Node2D"]
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_0422a")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_jsdmu")
+}

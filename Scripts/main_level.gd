@@ -13,7 +13,8 @@ enum Notes {EMPTY, SINGLE, DOUBLE, HOLD}
 @onready var player : Player = $"Player"
 @onready var world : World = $"World"
 @onready var shift : ColorRect = $"Shift"
-@onready var hud : Sprite2D = $"HUD"
+@onready var hud : Node2D = $"HUD"
+@onready var hud_anim_player : AnimationPlayer = $"HUD/AnimationPlayer"
 @onready var start_label : Label = $"Start"
 @onready var game_over_label : Label = $"GameOver"
 @onready var full_rot_time : float = current_conductor.stream.get_length()
@@ -37,16 +38,16 @@ var game_started : bool = false
 var single_note_scene = preload("res://Scenes/single_note.tscn")
 var double_note_scene = preload("res://Scenes/double_note.tscn")
 var hold_note_scene = preload("res://Scenes/single_hold_note.tscn")
-var night_hud_3 = preload("res://Assets/HUD/NOCHE Marco de Espinas_3.png")
-var night_hud_2 = preload("res://Assets/HUD/NOCHE Marco de Espinas_2.png")
-var night_hud_1 = preload("res://Assets/HUD/NOCHE Marco de Espinas_1.png")
-var night_hud_0 = preload("res://Assets/HUD/NOCHE Marco de Espinas_0.png")
+var night_hud_3 = "night_3"
+var night_hud_2 = "night_2"
+var night_hud_1 = "night_1"
+var night_hud_0 = "night_0"
 var night_huds = [night_hud_0, night_hud_1, night_hud_2, night_hud_3]
 var night_hud = night_hud_3
-var day_hud_3 = preload("res://Assets/HUD/DÍA Marco de Espinas_3.png")
-var day_hud_2 = preload("res://Assets/HUD/DÍA Marco de Espinas_2.png")
-var day_hud_1 = preload("res://Assets/HUD/DÍA Marco de Espinas_1.png")
-var day_hud_0 = preload("res://Assets/HUD/DÍA Marco de Espinas_0.png")
+var day_hud_3 = "day_3"
+var day_hud_2 = "day_2"
+var day_hud_1 = "day_1"
+var day_hud_0 = "day_0"
 var day_huds = [day_hud_0, day_hud_1, day_hud_2, day_hud_3]
 var day_hud = day_hud_3
 # Called when the node enters the scene tree for the first time.
@@ -58,6 +59,7 @@ func _ready():
 	self.note_success.connect(player._on_note_success)
 	day_conductor.finished.connect(on_day_finished)
 	night_conductor.finished.connect(on_night_finished)
+	hud_anim_player.play("day_3")
 	
 	seconds_per_note = beats_per_note * MusicManager.get_sec_per_beat()
 	perimeter = world.get_perimeter()
@@ -144,7 +146,7 @@ func start_night():
 
 func brighten_screen():
 	background.color = Color("1b1b0f")
-	hud.texture = night_hud
+	hud_anim_player.play(night_hud)
 	sun.hide()
 	moon.show()
 	world.start_night()
@@ -177,9 +179,9 @@ func _on_note_done(note, success_state):
 		night_hud = night_huds[player.lives]
 		if is_day:
 			night_notes.push_front(null)
-			hud.texture = day_hud
+			hud_anim_player.play(day_hud)
 		else:
-			hud.texture = night_hud
+			hud_anim_player.play(night_hud)
 		if not note.to_harvest:
 			note.queue_free()
 		return
