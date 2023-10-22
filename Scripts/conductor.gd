@@ -16,7 +16,7 @@ var closest : int = 0
 func _ready():
 	sec_per_beat = 60.0 / bpm
 
-func _process(delta):
+func _process(_delta):
 	if playing:
 		prev_song_position = song_position
 		song_position = get_playback_position() + AudioServer.get_time_since_last_mix()

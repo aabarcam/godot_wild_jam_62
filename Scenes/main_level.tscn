@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://btb48dwmwysao"]
+[gd_scene load_steps=13 format=3 uid="uid://btb48dwmwysao"]
 
 [ext_resource type="Script" path="res://Scripts/main_level.gd" id="1_ahxvt"]
 [ext_resource type="PackedScene" uid="uid://djeyy20a0ctp7" path="res://Scenes/world.tscn" id="2_5ic60"]
@@ -7,6 +7,17 @@
 [ext_resource type="PackedScene" uid="uid://2deoukmjvqdw" path="res://Scenes/conductor.tscn" id="4_co4vk"]
 [ext_resource type="AudioStream" uid="uid://kfcsrpxb5qcn" path="res://Assets/Audio/tema1otravez.mp3" id="5_6tmku"]
 [ext_resource type="AudioStream" uid="uid://d2ld3uyew3htx" path="res://Assets/Audio/tema1otravez_reversed.mp3" id="7_ossbq"]
+[ext_resource type="FontFile" uid="uid://y3kua7dps3sb" path="res://Assets/Font/Stoke/Stoke-Light.ttf" id="8_grtig"]
+[ext_resource type="PackedScene" uid="uid://d2nld0fk8sxis" path="res://Scenes/sun.tscn" id="9_qr1hq"]
+[ext_resource type="PackedScene" uid="uid://cgpi0rthbvwmj" path="res://Scenes/moon.tscn" id="10_j351v"]
+
+[sub_resource type="Theme" id="Theme_s8wts"]
+default_font = ExtResource("8_grtig")
+default_font_size = 32
+
+[sub_resource type="Theme" id="Theme_u68x7"]
+default_font = ExtResource("8_grtig")
+default_font_size = 32
 
 [node name="Level" type="Node2D"]
 script = ExtResource("1_ahxvt")
@@ -53,19 +64,44 @@ bpm = 101
 
 [node name="GameOver" type="Label" parent="."]
 visible = false
-offset_left = -73.0
-offset_top = -208.0
-offset_right = 68.0
-offset_bottom = -156.0
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -166.5
+offset_top = -192.0
+offset_right = 166.5
+offset_bottom = -104.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = SubResource("Theme_s8wts")
 text = "Game Over
 Press 'R' to restart"
 horizontal_alignment = 1
 
 [node name="Start" type="Label" parent="."]
-offset_left = -157.0
-offset_top = -203.0
-offset_right = 156.0
-offset_bottom = -151.0
-text = "Press 'SPACE' at the rhythm of the music
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -370.0
+offset_top = -171.5
+offset_right = 370.0
+offset_bottom = -82.5
+grow_horizontal = 2
+grow_vertical = 2
+theme = SubResource("Theme_u68x7")
+text = "Press 'SPACE' to the rhythm of the music
 Press 'SPACE' to start"
 horizontal_alignment = 1
+
+[node name="Sun" parent="." instance=ExtResource("9_qr1hq")]
+position = Vector2(455, -212)
+scale = Vector2(0.16, 0.16)
+
+[node name="Moon" parent="." instance=ExtResource("10_j351v")]
+visible = false
+position = Vector2(455, -212)
+scale = Vector2(0.16, 0.16)

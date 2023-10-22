@@ -1,0 +1,273 @@
+[gd_scene load_steps=14 format=3 uid="uid://bdfij5j4j4ove"]
+
+[ext_resource type="FontFile" uid="uid://y3kua7dps3sb" path="res://Assets/Font/Stoke/Stoke-Light.ttf" id="1_pwi1g"]
+[ext_resource type="Script" path="res://Scripts/credits.gd" id="2_lwerg"]
+
+[sub_resource type="Theme" id="Theme_2teyv"]
+default_font = ExtResource("1_pwi1g")
+
+[sub_resource type="Theme" id="Theme_r1fgf"]
+default_font_size = 64
+
+[sub_resource type="Theme" id="Theme_kgwul"]
+default_font_size = 48
+
+[sub_resource type="Theme" id="Theme_di17m"]
+default_font_size = 32
+
+[sub_resource type="Theme" id="Theme_hsnm6"]
+default_font_size = 48
+
+[sub_resource type="Theme" id="Theme_rq2nd"]
+default_font_size = 32
+
+[sub_resource type="Theme" id="Theme_dk2na"]
+default_font_size = 32
+
+[sub_resource type="Theme" id="Theme_o1okw"]
+default_font_size = 48
+
+[sub_resource type="Theme" id="Theme_ekyha"]
+default_font_size = 32
+
+[sub_resource type="Theme" id="Theme_6m70r"]
+default_font_size = 88
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_wlx1d"]
+
+[node name="Credits" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = SubResource("Theme_2teyv")
+script = ExtResource("2_lwerg")
+
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ColorRect" type="ColorRect" parent="Panel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.105882, 0.105882, 0.0588235, 1)
+
+[node name="Title" type="Label" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -124.5
+offset_top = 179.0
+offset_right = 124.5
+offset_bottom = 254.0
+grow_horizontal = 2
+theme = SubResource("Theme_r1fgf")
+text = "Credits"
+
+[node name="Programmer" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = 179.0
+offset_right = 20.0
+offset_bottom = 219.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ProgrammerTitle" type="Label" parent="Programmer"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -104.0
+offset_top = -19.5
+offset_right = 104.0
+offset_bottom = 19.5
+grow_horizontal = 2
+grow_vertical = 2
+theme = SubResource("Theme_kgwul")
+text = "Programming"
+horizontal_alignment = 1
+
+[node name="ProgrammerContent" type="Label" parent="Programmer"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -72.0
+offset_top = 32.5
+offset_right = 72.0
+offset_bottom = 63.5
+grow_horizontal = 2
+grow_vertical = 2
+theme = SubResource("Theme_di17m")
+text = "PenguinYee"
+horizontal_alignment = 1
+
+[node name="Artist" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -138.0
+offset_right = 20.0
+offset_bottom = -98.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ArtistTitle" type="Label" parent="Artist"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -56.5
+offset_top = -19.5
+offset_right = 56.5
+offset_bottom = 19.5
+grow_horizontal = 2
+grow_vertical = 2
+theme = SubResource("Theme_hsnm6")
+text = "Art"
+horizontal_alignment = 1
+
+[node name="ArtistContent1" type="Label" parent="Artist"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -54.0
+offset_top = 31.0
+offset_right = 54.0
+offset_bottom = 65.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = SubResource("Theme_rq2nd")
+text = "Juana Lourdes Sotomayor"
+horizontal_alignment = 1
+
+[node name="ArtistContent2" type="Label" parent="Artist"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -156.0
+offset_top = 66.0
+offset_right = 156.0
+offset_bottom = 110.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = SubResource("Theme_dk2na")
+text = "Joaquín Schwarz"
+horizontal_alignment = 1
+
+[node name="Sound" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = 37.0
+offset_right = 20.0
+offset_bottom = 77.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="SoundTitle" type="Label" parent="Sound"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -166.5
+offset_top = -29.0
+offset_right = 166.5
+offset_bottom = 29.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = SubResource("Theme_o1okw")
+text = "Music"
+horizontal_alignment = 1
+
+[node name="SoundContent" type="Label" parent="Sound"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -54.5
+offset_top = 28.5
+offset_right = 54.5
+offset_bottom = 67.5
+grow_horizontal = 2
+grow_vertical = 2
+theme = SubResource("Theme_ekyha")
+text = "José Tomás Contreras"
+horizontal_alignment = 1
+
+[node name="Thanks" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -431.5
+offset_top = -280.5
+offset_right = 431.5
+offset_bottom = -195.5
+grow_horizontal = 2
+grow_vertical = 2
+theme = SubResource("Theme_6m70r")
+text = "Thank you for playing!"
+
+[node name="FadeIn" type="Panel" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxEmpty_wlx1d")
+
+[node name="ColorRect" type="ColorRect" parent="FadeIn"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.105882, 0.105882, 0.0588235, 1)

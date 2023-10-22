@@ -1,0 +1,55 @@
+[gd_scene load_steps=8 format=3 uid="uid://cgpi0rthbvwmj"]
+
+[ext_resource type="Texture2D" uid="uid://c8sk53jj0116u" path="res://Assets/Sprites/Moon/Luna-1.png" id="1_m2qw4"]
+[ext_resource type="Texture2D" uid="uid://rluhur0tp6ec" path="res://Assets/Sprites/Moon/Luna-2.png" id="2_kh2vq"]
+[ext_resource type="Texture2D" uid="uid://bxtrhurk7roa4" path="res://Assets/Sprites/Moon/Luna-3.png" id="3_vufln"]
+[ext_resource type="Texture2D" uid="uid://dxm3vwmi70w2" path="res://Assets/Sprites/Moon/Luna-4.png" id="4_7i1r7"]
+
+[sub_resource type="Animation" id="Animation_yw4pr"]
+resource_name = "idle"
+length = 1.2
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4, 0.6, 0.8, 1, 1.2),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [ExtResource("1_m2qw4"), ExtResource("2_kh2vq"), ExtResource("3_vufln"), ExtResource("4_7i1r7"), ExtResource("3_vufln"), ExtResource("2_kh2vq"), ExtResource("1_m2qw4")]
+}
+
+[sub_resource type="Animation" id="Animation_tmpjr"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("1_m2qw4")]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_s4a34"]
+_data = {
+"RESET": SubResource("Animation_tmpjr"),
+"idle": SubResource("Animation_yw4pr")
+}
+
+[node name="Moon" type="Node2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_m2qw4")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+autoplay = "idle"
+libraries = {
+"": SubResource("AnimationLibrary_s4a34")
+}

@@ -1,0 +1,60 @@
+[gd_scene load_steps=6 format=3 uid="uid://sdy7i5dyc7dl"]
+
+[ext_resource type="Texture2D" uid="uid://b0sh2js0mj2ml" path="res://Assets/Sprites/TITLE SCREEN.png" id="1_7grp6"]
+[ext_resource type="Script" path="res://Scripts/main_menu.gd" id="1_aegoc"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_cphbt"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+border_color = Color(0.737255, 0.647059, 0.513726, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_dnh60"]
+bg_color = Color(0, 0, 0, 0)
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+border_color = Color(0.737255, 0.647059, 0.513726, 0.498039)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_exrwn"]
+
+[node name="MainMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_aegoc")
+
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TextureRect" type="TextureRect" parent="Panel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_7grp6")
+expand_mode = 1
+
+[node name="PlayButton" type="Button" parent="Panel"]
+layout_mode = 0
+offset_left = 852.0
+offset_top = 520.0
+offset_right = 989.0
+offset_bottom = 596.0
+theme_override_styles/normal = SubResource("StyleBoxFlat_cphbt")
+theme_override_styles/hover = SubResource("StyleBoxFlat_cphbt")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_dnh60")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_exrwn")

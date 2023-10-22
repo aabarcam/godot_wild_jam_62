@@ -1,0 +1,55 @@
+[gd_scene load_steps=8 format=3 uid="uid://d2nld0fk8sxis"]
+
+[ext_resource type="Texture2D" uid="uid://c22j6xamsx3wi" path="res://Assets/Sprites/Sun/Sol-1.png" id="1_jukxb"]
+[ext_resource type="Texture2D" uid="uid://b5uiul20caons" path="res://Assets/Sprites/Sun/Sol-2.png" id="2_ma878"]
+[ext_resource type="Texture2D" uid="uid://ccoa3645ucv6i" path="res://Assets/Sprites/Sun/Sol-3.png" id="3_nbdn7"]
+[ext_resource type="Texture2D" uid="uid://ctyoxb8i53rde" path="res://Assets/Sprites/Sun/Sol-4.png" id="4_a84b2"]
+
+[sub_resource type="Animation" id="Animation_48dql"]
+resource_name = "idle"
+length = 1.2
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4, 0.6, 0.8, 1, 1.2),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [ExtResource("1_jukxb"), ExtResource("2_ma878"), ExtResource("3_nbdn7"), ExtResource("4_a84b2"), ExtResource("3_nbdn7"), ExtResource("2_ma878"), ExtResource("1_jukxb")]
+}
+
+[sub_resource type="Animation" id="Animation_etua5"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("1_jukxb")]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_seusu"]
+_data = {
+"RESET": SubResource("Animation_etua5"),
+"idle": SubResource("Animation_48dql")
+}
+
+[node name="Sun" type="Node2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_jukxb")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+autoplay = "idle"
+libraries = {
+"": SubResource("AnimationLibrary_seusu")
+}

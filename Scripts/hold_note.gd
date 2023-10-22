@@ -18,12 +18,19 @@ func _process(delta):
 		emit_note_done(true)
 	super._process(delta)
 
+func grow_pumpkin():
+	progress_bar.position.y -= 320
+	progress_bar.show()
+	outline_sprite.texture = pumpkin_outline_tex
+
+
 func hit_note():
 	if not active:
 		return
 	outline_sprite.hide()
 	if check_hit():
 		note_hit = true
+		remaining_time = cue_time
 		outline_sprite.hide()
 	else:
 		emit_note_done(false)

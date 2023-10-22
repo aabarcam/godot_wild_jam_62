@@ -4,6 +4,8 @@ signal note_success
 
 enum Notes {EMPTY, SINGLE, DOUBLE, HOLD}
 
+@onready var sun = $"Sun"
+@onready var moon = $"Moon"
 @onready var background : ColorRect = $"Background"
 @onready var day_conductor : Conductor = $"DaySong"
 @onready var night_conductor : Conductor = $"NightSong"
@@ -55,13 +57,13 @@ func _ready():
 	player.player_lost.connect(_on_player_lost)
 	self.note_success.connect(player._on_note_success)
 	day_conductor.finished.connect(on_day_finished)
+	night_conductor.finished.connect(on_night_finished)
 	
 	seconds_per_note = beats_per_note * MusicManager.get_sec_per_beat()
 	perimeter = world.get_perimeter()
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
-	var adjusted_delta = MusicManager.adjusted_delta()
+func _process(_delta):
 	if Input.is_action_just_pressed("main_action") and not game_started:
 		game_started = true
 		start_day()
@@ -143,6 +145,8 @@ func start_night():
 func brighten_screen():
 	background.color = Color("1b1b0f")
 	hud.texture = night_hud
+	sun.hide()
+	moon.show()
 	world.start_night()
 	player.turn_witch()
 	
@@ -216,3 +220,12 @@ func on_day_finished():
 		n.reset()
 		n.to_harvest = true
 	start_night()
+
+func on_night_finished():
+	player.stop_anim()
+	var tween = get_tree().create_tween()
+	tween.tween_property(shift, "color:a", 1, 4)
+	tween.finished.connect(_go_to_credits)
+
+func _go_to_credits():
+	get_tree().change_scene_to_file("res://Scenes/credits.tscn")

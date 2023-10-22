@@ -27,7 +27,7 @@ func _ready():
 	pass # Replace with function body.
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
+func _process(_delta):
 	if remaining_time > expire_time and active:
 		var adjusted_delta = MusicManager.adjusted_delta()
 		remaining_time -= adjusted_delta
@@ -52,9 +52,6 @@ func play_right_skull_anim():
 func sprout():
 	anim_player.stop()
 	sprite.visible = false
-
-func grow_pumpkin():
-	outline_sprite.texture = pumpkin_outline_tex
 
 func grow_eye():
 	outline_sprite.texture = eye_outline_tex
