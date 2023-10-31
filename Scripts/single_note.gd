@@ -1,59 +1,72 @@
-extends Node2D
+class_name SingleNote
+extends PlayableNote
 
-signal note_done(this_note, success_state)
+var ghost_dict: Dictionary = {}
+var active_ghost: AnimatedSprite2D
+@onready var note_component = $"NoteComponent" as NoteComponent
+@onready var seed_sprite = $"Sprites/Seed" as AnimatedSprite2D
+@onready var sprout_sprite = $"Sprites/Sprout" as AnimatedSprite2D
+@onready var plant_sprite = $"Sprites/Plant" as AnimatedSprite2D
+@onready var seed_ghost = $"Ghosts/Seed" as AnimatedSprite2D
+@onready var plant_ghost = $"Ghosts/Plant" as AnimatedSprite2D
 
-@onready var anim_player : AnimationPlayer = $"AnimationPlayer"
-@onready var note : Note = $"Note"
-@onready var sprout_timer : Timer = $"SproutTimer"
-@onready var harvest_timer : Timer = $"HarvestTimer"
-var to_harvest : bool = false
-var radians
-# Called when the node enters the scene tree for the first time.
-func _ready():
-	note.play_eye_anim()
-	note.note_done.connect(_on_note_done)
-	sprout_timer.timeout.connect(_on_sprout_timer_timeout)
-	harvest_timer.timeout.connect(_on_harvest_timer_timeout)
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(_delta):
-	pass
+func _ready() -> void:
+	note_component.note_done.connect(_on_note_done)
+	use_sprite(seed_sprite)
+	active_ghost = seed_ghost
+	offset = 80
 
-func reset():
-	note.reset()
 
-func start_note():
-	note.start()
+func _process(_delta: float) -> void:
+	var ghost_scale = time_to_scale(note_component.get_remaining_time())
+	var ghost = ghost_dict.get(note_component) as AnimatedSprite2D
+	if ghost != null:
+		ghost.scale = Vector2(ghost_scale, ghost_scale)
 
-func hit_note():
-	note.hit_note()
+func sprout() -> void:
+	_is_seed = false
+	use_sprite(sprout_sprite)
 
-func release_note():
-	pass
 
-func sprout():
-	anim_player.play("sprout")
-	note.sprout()
+func grow() -> void:
+	active_ghost = plant_ghost
+	use_sprite(plant_sprite)
 
-func grow():
-	anim_player.play("grown")
-	note.grow_eye()
-	note.position.x = 20
-	note.position.y = -608
 
-func harvest():
-	harvest_timer.start()
+func start_note() -> void:
+	note_component.start()
+	ghost_dict[note_component] = active_ghost
+	activate_ghost(active_ghost)
 
-func _on_harvest_timer_timeout():
-	self.queue_free()
 
-func set_cue(time):
-	note.set_cue(time)
+func hit_note() -> void:
+	note_component.hit_note()
 
-func _on_note_done(success_state):
-	note_done.emit(self, success_state)
-	if not to_harvest:
-		sprout_timer.start()
 
-func _on_sprout_timer_timeout():
-	sprout()
+func release_note() -> void:
+	return
+
+
+func reset() -> void:
+	note_component.reset()
+	ghost_dict = {}
+
+
+func set_cue(time: float) -> void:
+	note_component.set_cue_time(time)
+
+
+func _on_note_done(success: bool) -> void:
+	note_done.emit(self, success)
+	deactivate_ghost(ghost_dict[note_component])
+	if not success and _is_seed:
+		queue_free()
+		return
+	await get_tree().create_timer(1.0).timeout
+	if success:
+		if _is_seed:
+			sprout()
+		else:
+			queue_free()
+

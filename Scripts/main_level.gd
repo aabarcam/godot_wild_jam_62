@@ -37,7 +37,7 @@ var game_started : bool = false
 
 var single_note_scene = preload("res://Scenes/single_note.tscn")
 var double_note_scene = preload("res://Scenes/double_note.tscn")
-var hold_note_scene = preload("res://Scenes/single_hold_note.tscn")
+var hold_note_scene = preload("res://Scenes/hold_note.tscn")
 var night_hud_3 = "night_3"
 var night_hud_2 = "night_2"
 var night_hud_1 = "night_1"
@@ -97,13 +97,10 @@ func activate_next():
 	next_note.start_note()
 
 func spawn_note(offset=0):
-	if spawned > full_rot_time / seconds_per_note - 4:
+	if spawned > full_rot_time / seconds_per_note - 6:
 		return
 	spawned += 1
-	var next_note = [Notes.EMPTY, Notes.SINGLE, Notes.DOUBLE, Notes.HOLD].pick_random()
-	next_note = [single_note_scene, double_note_scene, hold_note_scene].pick_random()
-#	if next_note == Notes.EMPTY:
-		
+	var next_note = [single_note_scene, double_note_scene, hold_note_scene].pick_random()
 	var radius = world.get_radius() + 256
 #	var note_pos = -next_note_ratio * 2 * PI - deg_to_rad(90)
 	var note_pos = -next_note_ratio - deg_to_rad(120) + offset
@@ -112,7 +109,6 @@ func spawn_note(offset=0):
 	world.add_child(note_instance)
 	var angle_offset = -note_pos - deg_to_rad(90)
 	note_instance.rotation = -angle_offset
-	note_instance.scale = Vector2(0.4, 0.4)
 	note_instance.position = Vector2(radius * cos(note_pos), radius * sin(note_pos))
 	next_note_ratio = world_rotation_ratio * current_conductor.get_song_pos()
 	current_notes.append(note_instance)
@@ -171,8 +167,6 @@ func reset():
 
 func _on_note_done(note, success_state):
 	active_notes.erase(note)
-	if success_state and note.to_harvest:
-		note.harvest()
 	if not success_state:
 		player.miss()
 		day_hud = day_huds[player.lives]
@@ -182,17 +176,15 @@ func _on_note_done(note, success_state):
 			hud_anim_player.play(day_hud)
 		else:
 			hud_anim_player.play(night_hud)
-		if not note.to_harvest:
-			note.queue_free()
 		return
 	if is_day:
 		night_notes.push_front(note)
 	note_success.emit()
-	var new_radius = world.get_radius() - 32
-	var tween_time = 0.8
-	var pos_tween = get_tree().create_tween()
+	var new_radius = world.get_radius() - note.get_offset()
 	var radians = note.radians
 	var new_pos = Vector2(new_radius * cos(radians), new_radius * sin(radians))
+	var pos_tween = get_tree().create_tween()
+	var tween_time = 0.8
 	pos_tween.tween_property(note, "position", new_pos, tween_time)
 
 func _on_hit_note():
@@ -220,7 +212,6 @@ func on_day_finished():
 		if n == null:
 			continue
 		n.reset()
-		n.to_harvest = true
 	start_night()
 
 func on_night_finished():

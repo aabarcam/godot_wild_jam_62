@@ -1,168 +1,200 @@
-[gd_scene load_steps=15 format=3 uid="uid://dud5bc3he4461"]
+[gd_scene load_steps=33 format=3 uid="uid://xabcovn54a2j"]
 
-[ext_resource type="PackedScene" uid="uid://c6n0bm22u1f7w" path="res://Scenes/note.tscn" id="1_kyykc"]
 [ext_resource type="Script" path="res://Scripts/double_note.gd" id="1_ydkyc"]
-[ext_resource type="Texture2D" uid="uid://difi7585fk61w" path="res://Assets/Sprites/Sprouts/Skull/BROTE-CALAVERA_1.png" id="3_i3rsa"]
-[ext_resource type="Texture2D" uid="uid://bo1jsg5nuhcgg" path="res://Assets/Sprites/Sprouts/Skull/BROTE-CALAVERA_2.png" id="4_quwyv"]
-[ext_resource type="Texture2D" uid="uid://b1gepapph508n" path="res://Assets/Sprites/Sprouts/Skull/BROTE-CALAVERA_3.png" id="5_0psjl"]
-[ext_resource type="Texture2D" uid="uid://cj3rvhx3gtcxo" path="res://Assets/Sprites/Sprouts/Skull/BROTE-CALAVERA_4.png" id="6_nj2ds"]
-[ext_resource type="Texture2D" uid="uid://ds404e7u8h2l7" path="res://Assets/Sprites/Plants/Skull/CALAVERAS_1.png" id="7_63on2"]
-[ext_resource type="Texture2D" uid="uid://bjrccs08c6w1b" path="res://Assets/Sprites/Plants/Skull/CALAVERAS_2.png" id="8_2svyc"]
-[ext_resource type="Texture2D" uid="uid://cdm7lj5mngo3b" path="res://Assets/Sprites/Plants/Skull/CALAVERAS_3.png" id="9_gh4y7"]
-[ext_resource type="Texture2D" uid="uid://dov1ut2oveadr" path="res://Assets/Sprites/Plants/Skull/CALAVERAS_4.png" id="10_dkqyv"]
+[ext_resource type="PackedScene" uid="uid://beymy2vydckmd" path="res://Scenes/note_component.tscn" id="2_jjg2c"]
+[ext_resource type="Script" path="res://Scripts/note_component.gd" id="3_15fr5"]
+[ext_resource type="Texture2D" uid="uid://cmpw5jlca1oii" path="res://Assets/Sprites/Seeds/Skull/SEMILLA-CALAVERA_1.png" id="3_lk0ht"]
+[ext_resource type="Texture2D" uid="uid://yhj6nqitflck" path="res://Assets/Sprites/Seeds/Skull/SEMILLA-CALAVERA_2.png" id="4_8sqot"]
+[ext_resource type="Texture2D" uid="uid://dht7or0qmf8n4" path="res://Assets/Sprites/Seeds/Skull/SEMILLA-CALAVERA_3.png" id="5_mdyw2"]
+[ext_resource type="Texture2D" uid="uid://3p2bpoadj3uu" path="res://Assets/Sprites/Seeds/Skull/SEMILLA-CALAVERA_4.png" id="6_s8428"]
+[ext_resource type="Texture2D" uid="uid://difi7585fk61w" path="res://Assets/Sprites/Sprouts/Skull/BROTE-CALAVERA_1.png" id="7_4pdth"]
+[ext_resource type="Texture2D" uid="uid://bo1jsg5nuhcgg" path="res://Assets/Sprites/Sprouts/Skull/BROTE-CALAVERA_2.png" id="8_75j5y"]
+[ext_resource type="Texture2D" uid="uid://b1gepapph508n" path="res://Assets/Sprites/Sprouts/Skull/BROTE-CALAVERA_3.png" id="9_eob22"]
+[ext_resource type="Texture2D" uid="uid://cj3rvhx3gtcxo" path="res://Assets/Sprites/Sprouts/Skull/BROTE-CALAVERA_4.png" id="10_si2kr"]
+[ext_resource type="Texture2D" uid="uid://ds404e7u8h2l7" path="res://Assets/Sprites/Plants/Skull/CALAVERAS_1.png" id="11_y1or2"]
+[ext_resource type="Texture2D" uid="uid://bjrccs08c6w1b" path="res://Assets/Sprites/Plants/Skull/CALAVERAS_2.png" id="12_3hjlu"]
+[ext_resource type="Texture2D" uid="uid://cdm7lj5mngo3b" path="res://Assets/Sprites/Plants/Skull/CALAVERAS_3.png" id="13_7r3kc"]
+[ext_resource type="Texture2D" uid="uid://dov1ut2oveadr" path="res://Assets/Sprites/Plants/Skull/CALAVERAS_4.png" id="14_4tmlf"]
+[ext_resource type="Texture2D" uid="uid://wgdka2ra0qsj" path="res://Assets/Sprites/Seeds/Skull/SEMILLA-CALAVERA_DER_1.png" id="15_nwhxw"]
+[ext_resource type="Texture2D" uid="uid://51bfjlt4lu8o" path="res://Assets/Sprites/Seeds/Skull/SEMILLA-CALAVERA_DER_2.png" id="16_yc7n8"]
+[ext_resource type="Texture2D" uid="uid://c2b5hsmpjov81" path="res://Assets/Sprites/Seeds/Skull/SEMILLA-CALAVERA_DER_3.png" id="17_cdlo6"]
+[ext_resource type="Texture2D" uid="uid://cd5bkgj5pplto" path="res://Assets/Sprites/Seeds/Skull/SEMILLA-CALAVERA_DER_4.png" id="18_yphgn"]
+[ext_resource type="Texture2D" uid="uid://bp4ar06vimb7g" path="res://Assets/Sprites/Seeds/Skull/SEMILLA-CALAVERA_IZQ_1.png" id="19_53be5"]
+[ext_resource type="Texture2D" uid="uid://8ipdulqi5rma" path="res://Assets/Sprites/Seeds/Skull/SEMILLA-CALAVERA_IZQ_2.png" id="20_ek64p"]
+[ext_resource type="Texture2D" uid="uid://j15bni1p45r2" path="res://Assets/Sprites/Seeds/Skull/SEMILLA-CALAVERA_IZQ_3.png" id="21_y0pdg"]
+[ext_resource type="Texture2D" uid="uid://bf06p3g5uqnse" path="res://Assets/Sprites/Seeds/Skull/SEMILLA-CALAVERA_IZQ_4.png" id="22_25d3v"]
+[ext_resource type="Texture2D" uid="uid://cwmjqfk30qmdb" path="res://Assets/Sprites/Plants/Skull/CALAVERAS_DER_OUTLINE.png" id="23_4x3l1"]
+[ext_resource type="Texture2D" uid="uid://j2crjemjww2i" path="res://Assets/Sprites/Plants/Skull/CALAVERAS_IZQ_OUTLINE.png" id="24_oxnwf"]
 
-[sub_resource type="Animation" id="Animation_0q8k8"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite2D:visible")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [false]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("Sprite2D:texture")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [ExtResource("3_i3rsa")]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("Sprite2D:position")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(80, -285)]
-}
+[sub_resource type="SpriteFrames" id="SpriteFrames_kc48e"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_lk0ht")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_8sqot")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_mdyw2")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_s8428")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
 
-[sub_resource type="Animation" id="Animation_1fa5y"]
-resource_name = "grown"
-length = 0.8
-loop_mode = 1
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite2D:texture")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.2, 0.4, 0.6),
-"transitions": PackedFloat32Array(1, 1, 1, 1),
-"update": 1,
-"values": [ExtResource("7_63on2"), ExtResource("8_2svyc"), ExtResource("9_gh4y7"), ExtResource("10_dkqyv")]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("Sprite2D:visible")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [true]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("Sprite2D:position")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(66, -314)]
-}
+[sub_resource type="SpriteFrames" id="SpriteFrames_xg73v"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("7_4pdth")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_75j5y")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_eob22")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_si2kr")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
 
-[sub_resource type="Animation" id="Animation_fiy2j"]
-resource_name = "idle_sprout"
-length = 0.8
-loop_mode = 1
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite2D:visible")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [true]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("Sprite2D:texture")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.2, 0.4, 0.6),
-"transitions": PackedFloat32Array(1, 1, 1, 1),
-"update": 1,
-"values": [ExtResource("3_i3rsa"), ExtResource("4_quwyv"), ExtResource("5_0psjl"), ExtResource("6_nj2ds")]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("Sprite2D:position")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(0, 0)]
-}
+[sub_resource type="SpriteFrames" id="SpriteFrames_ww3pq"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("11_y1or2")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_3hjlu")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_7r3kc")
+}, {
+"duration": 1.0,
+"texture": ExtResource("14_4tmlf")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
 
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_roinw"]
-_data = {
-"RESET": SubResource("Animation_0q8k8"),
-"grown": SubResource("Animation_1fa5y"),
-"idle_sprout": SubResource("Animation_fiy2j")
-}
+[sub_resource type="SpriteFrames" id="SpriteFrames_2l231"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("15_nwhxw")
+}, {
+"duration": 1.0,
+"texture": ExtResource("16_yc7n8")
+}, {
+"duration": 1.0,
+"texture": ExtResource("17_cdlo6")
+}, {
+"duration": 1.0,
+"texture": ExtResource("18_yphgn")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_45qar"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("19_53be5")
+}, {
+"duration": 1.0,
+"texture": ExtResource("20_ek64p")
+}, {
+"duration": 1.0,
+"texture": ExtResource("21_y0pdg")
+}, {
+"duration": 1.0,
+"texture": ExtResource("22_25d3v")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_rkfob"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("23_4x3l1")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_bd8r5"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("24_oxnwf")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
 
 [node name="DoubleNote" type="Node2D"]
+scale = Vector2(0.4, 0.4)
 script = ExtResource("1_ydkyc")
 
-[node name="Note" parent="." instance=ExtResource("1_kyykc")]
-position = Vector2(-163, 80)
+[node name="NoteComponent" parent="." instance=ExtResource("2_jjg2c")]
 
-[node name="Note2" parent="." instance=ExtResource("1_kyykc")]
-position = Vector2(82, 1)
+[node name="NoteComponent2" type="Node2D" parent="."]
+script = ExtResource("3_15fr5")
 
-[node name="Timer" type="Timer" parent="."]
-wait_time = 0.5
+[node name="Sprites" type="Node2D" parent="."]
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-libraries = {
-"": SubResource("AnimationLibrary_roinw")
-}
+[node name="Seed" type="AnimatedSprite2D" parent="Sprites"]
+sprite_frames = SubResource("SpriteFrames_kc48e")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
+[node name="Sprout" type="AnimatedSprite2D" parent="Sprites"]
 visible = false
-position = Vector2(80, -285)
-texture = ExtResource("3_i3rsa")
+position = Vector2(7, -111)
+sprite_frames = SubResource("SpriteFrames_xg73v")
 
-[node name="SproutTimer" type="Timer" parent="."]
-one_shot = true
+[node name="Plant" type="AnimatedSprite2D" parent="Sprites"]
+visible = false
+position = Vector2(54, -487)
+sprite_frames = SubResource("SpriteFrames_ww3pq")
 
-[node name="HarvestTimer" type="Timer" parent="."]
-one_shot = true
+[node name="Ghosts" type="Node2D" parent="."]
+modulate = Color(1, 1, 1, 0.321569)
+
+[node name="Seeds" type="Node2D" parent="Ghosts"]
+
+[node name="Right" type="AnimatedSprite2D" parent="Ghosts/Seeds"]
+visible = false
+position = Vector2(79, 61)
+sprite_frames = SubResource("SpriteFrames_2l231")
+
+[node name="Left" type="AnimatedSprite2D" parent="Ghosts/Seeds"]
+visible = false
+position = Vector2(-84, -58)
+sprite_frames = SubResource("SpriteFrames_45qar")
+
+[node name="Plants" type="Node2D" parent="Ghosts"]
+
+[node name="Right" type="AnimatedSprite2D" parent="Ghosts/Plants"]
+visible = false
+position = Vector2(133, -568)
+sprite_frames = SubResource("SpriteFrames_rkfob")
+
+[node name="Left" type="AnimatedSprite2D" parent="Ghosts/Plants"]
+visible = false
+position = Vector2(-17, -940)
+sprite_frames = SubResource("SpriteFrames_bd8r5")

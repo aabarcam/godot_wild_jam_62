@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://cy2w7wvs3150o"]
+
+[ext_resource type="Script" path="res://Scripts/hold_note_component.gd" id="1_6p27f"]
+
+[node name="HoldNoteComponent" type="Node2D"]
+script = ExtResource("1_6p27f")

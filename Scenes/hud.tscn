@@ -17,6 +17,21 @@
 [ext_resource type="Texture2D" uid="uid://bm0xeksltbc25" path="res://Assets/HUD/NOCHE Marco de Espinas_3.png" id="15_vu84t"]
 [ext_resource type="Texture2D" uid="uid://dbk3bq7bgiuyr" path="res://Assets/HUD/Marco_Noche_2_3.png" id="16_yr32a"]
 
+[sub_resource type="Animation" id="Animation_ga45v"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("1_0422a")]
+}
+
 [sub_resource type="Animation" id="Animation_q22gd"]
 resource_name = "day_0"
 length = 0.4
@@ -32,21 +47,6 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1, 1),
 "update": 1,
 "values": [ExtResource("1_0422a"), ExtResource("2_vhchl")]
-}
-
-[sub_resource type="Animation" id="Animation_ga45v"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite2D:texture")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [ExtResource("1_0422a")]
 }
 
 [sub_resource type="Animation" id="Animation_yv0t4"]

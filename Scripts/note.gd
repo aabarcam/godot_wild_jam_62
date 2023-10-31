@@ -1,6 +1,6 @@
 extends Node2D
 
-class_name Note
+#class_name Note
 
 @onready var anim_player : AnimationPlayer = $"AnimationPlayer"
 @onready var outline_sprite : Sprite2D = $"Outline"
